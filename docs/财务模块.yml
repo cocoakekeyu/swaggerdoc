@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  title: 财务模块部分 API
+  description: 与财务相关的API均在此 
+  version: "1.0.0"
+# the domain of the service
+host: 0.0.0.0:8000
+# array of all schemes that your API supports
+schemes:
+  - http
+  - https
+# will be prefixed to all paths
+basePath: /api/v1
+produces:
+  - application/json
+paths:
+
+  /orderorder:
+    get:
+      summary: 获取财务单列表
+      description: 无
+      tags:
+        - OrderOrder
+      responses:
+        200:
+          description: 获取成功。
+          schema:
+            $ref: '#/definitions/SuccessUrl'
+        403:
+          description: 没有权限访问
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  SuccessUrl:
+    type: object
+    properties:
+      status:
+        type: string
+        description: 状态。 'ok' or 'fail'
+      url:
+        type: string
+        description: 对象的api url地址
+  Error:
+    type: object
+    properties:
+      error:
+        type: object
+        properties:
+          code:
+            type: integer
+            format: int32
+            description: 错误代码
+          msg:
+            type: string
+            description: 错误描述
+          detail:
+            type: string
+            description: 详细描述

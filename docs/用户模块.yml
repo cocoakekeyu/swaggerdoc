@@ -1,0 +1,92 @@
+swagger: '2.0'
+info:
+  title: 用户模块部分 API
+  description: 与用户相关的API均在此 
+  version: "1.0.0"
+# the domain of the service
+host: 0.0.0.0:8000
+# array of all schemes that your API supports
+schemes:
+  - http
+  - https
+# will be prefixed to all paths
+basePath: /api/v1
+produces:
+  - application/json
+paths:
+
+  /user:
+    put:
+      summary: 设置用户信息
+      description: 无
+      parameters:
+        - name: payload
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              realname:
+                type: string
+                description: 真实姓名
+              nickname:
+                type: string
+                description: 昵称
+              city:
+                type: string
+                description: 城市
+              country:
+                type: string
+                description: 国家
+              province:
+                type: string
+                description: 省
+              gender:
+                type: integer
+                description: 1： 男 2： 女
+              phone:
+                type: string
+                description: 手机号
+              head_url:
+                type: string
+                description: 头像链接
+      tags:
+        - User
+      responses:
+        200:
+          description: 修改成功。
+          schema:
+            $ref: '#/definitions/SuccessUrl'
+        403:
+          description: 没有权限访问
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  SuccessUrl:
+    type: object
+    properties:
+      status:
+        type: string
+        description: 状态。 'ok' or 'fail'
+      url:
+        type: string
+        description: 对象的api url地址
+  Error:
+    type: object
+    properties:
+      error:
+        type: object
+        properties:
+          code:
+            type: integer
+            format: int32
+            description: 错误代码
+          msg:
+            type: string
+            description: 错误描述
+          detail:
+            type: string
+            description: 详细描述
