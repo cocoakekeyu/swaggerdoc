@@ -1,4 +1,4 @@
-# Saggerdoc
+# Swaggerdoc
 
 ## 说明
 这是一个简便的django app将swagger ui搬到项目中展示。开发人员只需将swagger文档放到项目指定目录，即可打开相应的URL查看swagger文档，非常适合使用Django开发的项目，在开发过程同时编写文档，并同步更新到项目中，团队其他人员也可以同时看到最新修改的文档。
@@ -18,4 +18,4 @@ Django APP为`swaggerdoc`，像其他APP一样将该目录放到项目目录中�
 
 ![](http://7xpcbe.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE_2017-03-22_10-21-52.png)
 
-代码是一个完整的django工程，提供可运行的事例, 直接git clone试运行。
+代码是一个完整的django工程，提供可运行的示例, 直接git clone试运行。
